@@ -10,50 +10,17 @@ def partida_ajedrez(nombre_fichero):
         print(tablero)
         movimiento = input('Quiere hacer otro movimiento: ')
         if movimiento != 'Si':
-            tablero[7][4] = '\t'
-            tablero[7][6] = '♔'
-            tablero[7][7] = '\t'
-            tablero[7][5] = '♖'
-        elif movimiento == '0-0-0':
-            tablero[7][4] = '\t'
-            tablero[7][2] = '♔'
-            tablero[7][0] = '\t'
-            tablero[7][3] = '♖'
+            break
+    
         else:
-            tablero[int(movimiento[1])-1][ord(movimiento[0])-97] = '\t'
-            tablero[int(movimiento[3])-1][ord(movimiento[2])-97] = '♔'
-        movimientos += 1
-        print('Turno del jugador negro')
-        print(tablero)
-        movimiento = input('Introduzca el movimiento: ')
-        if movimiento == '0-0':
-            tablero[0][4] = '\t'
-            tablero[0][6] = '♚'
-            tablero[0][7] = '\t'
-            tablero[0][5] = '♜'
-        elif movimiento == '0-0-0':
-            tablero[0][4] = '\t'
-            tablero[0][2] = '♚'
-            tablero[0][0] = '\t'
-            tablero[0][3] = '♜'
-        else:   
-            tablero[int(movimiento[1])-1][ord(movimiento[0])-97] = '\t'
-            tablero[int(movimiento[3])-1][ord(movimiento[2])-97] = '♚'
-        movimientos += 1
-        f = open(nombre_fichero, 'w')
-        f.write(tablero)
-        f.close()
-        if movimientos == 100:
-            print('Empate')
-            break
-        elif tablero[0][4] == '\t':
-            print('Ganan las negras')
-            break
-        elif tablero[7][4] == '\t':
-            print('Ganan las blancas')
-            break
+            fila_inicial = int(input('Introduzca la fila inicial: '))
+            columna_inicial = int(input('Introduzca la columna inicial: '))
+            fila_final = int(input('Introduzca la fila final: '))
+            columna_final = int(input('Introduzca la columna final: '))
+            tablero[fila_final-1][columna_final-1] = tablero [fila_inicial-1][columna_inicial-1]
+            tablero[fila_inicial-1][columna_inicial-1] = '\t'
+            movimientos += 1
+            
 
-partida_ajedrez('partida_ajedrez.txt')
-
-
-
+           
+        
