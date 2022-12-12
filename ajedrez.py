@@ -1,11 +1,11 @@
 def partida_ajedrez(numero_fichero):
-    """Funcion que recibe un numero de fichero y devuelve la partida de ajedrez
-    correspondiente a ese numero de fichero"""
-    # Abrimos el fichero
-    fichero = open("partidas.txt", "r")
-    # Leemos el fichero
-    texto = fichero.read()
-    # Cerramos el fichero
-    fichero.close()
-    # Separamos el texto en partidas
-    partidas = texto.split("
+    tablero_inicial = '♜\t♞\t♝\t♛\t♚\t♝\t♞\t♜\n♟\t♟\t♟\t♟\t♟\t♟\t♟\t♟\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n♙\t♙\t♙\t♙\t♙\t♙\t♙\t♙\n♖\t♘\t♗\t♕\t♔\t♗\t♘\t♖'
+    tablero = []
+    for i in range('\n' in tablero_inicial'):
+        tablero.append(tablero_inicial.split('\t')[8*i:8*(i+1)])
+        f = open(nombre_fichero, 'w')
+        f.write(tablero)
+        f.close()
+        return tablero
+    movimientos = 0
+    
