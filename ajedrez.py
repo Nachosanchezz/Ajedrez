@@ -6,9 +6,7 @@ def partida_ajedrez(nombre_fichero):
     print(tablero)
     movimientos = 0
     while True:
-        print('Turno del jugador blanco')
-        print(tablero)
-        movimiento = input('Quiere hacer otro movimiento: ')
+        movimiento = input('Quiere hacer otro movimiento: (Si/No)')
         if movimiento != 'Si':
             break
     
@@ -20,7 +18,17 @@ def partida_ajedrez(nombre_fichero):
             tablero[fila_final-1][columna_final-1] = tablero [fila_inicial-1][columna_inicial-1]
             tablero[fila_inicial-1][columna_inicial-1] = '\t'
             movimientos += 1
-            
+            f = open(nombre_fichero, 'a')
+            f.write('Movimiento ' + str(movimiento) + '\n')
+
+            for i in tablero:
+                f.write('\t'.join(i) + '\n')
+            f.close()
+    return 
+
+partida_ajedrez('partida-ajedrez.txt')
+
+
 
            
         
